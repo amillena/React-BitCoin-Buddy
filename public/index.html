@@ -17,11 +17,9 @@
 
   </head>
   <body>
-    <div id="root">
-              
-
-    </div>
-
+    <div id="root">           
+      </div>
+        <div class="btcwdgt-news" bw-cur="usd"></div>
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
@@ -35,8 +33,16 @@
 
     <!-- All of our JS code will be transpiled into this bundle.js file -->
                 
-      <script type="text/javascript" src="//widget.coindesk.com/bpiticker/coindesk-widget.min.js"></script>
-    
+     <!-- <script type="text/javascript" src="//widget.coindesk.com/bpiticker/coindesk-widget.min.js"></script> -->
+          <script>
+              (function(b,i,t,C,O,I,N) {
+                window.addEventListener('load',function() {
+                  if(b.getElementById(C))return;
+                  I=b.createElement(i),N=b.getElementsByTagName(i)[0];
+                  I.src=t;I.id=C;N.parentNode.insertBefore(I, N);
+                },false)
+              })(document,'script','https://widgets.bitcoin.com/widget.js','btcwdgt');
+          </script>
 
   </body>
 </html>

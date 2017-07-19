@@ -26,7 +26,8 @@ class App extends Component {
             <Navbar.Brand>
             
             {  !isAuthenticated() && (
-              <h4>Bit-Coin Buddy</h4>
+              <img className="img-brand" src={"../BitCoin_Buddy_logo.png"} alt="BitCoin_Buddy_logo.png" width="100px" height="40px"/>
+              // <h4>Bit-Coin Buddy</h4>
               )
             }
             {  isAuthenticated() && (

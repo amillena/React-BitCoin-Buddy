@@ -10,10 +10,6 @@ class Home extends Component {
     const { isAuthenticated } = this.props.auth;
     return (
       <div className="container">
-        <img src={"../BitCoin_Buddy_logo.png"} alt="BitCoin_Buddy_logo.png" width="50%" height="50%"/>
-          <div>&nbsp;</div>
-
-          <div id="coindesk-widget" data-align="center"></div> 
               {
                 isAuthenticated() && (
                     <h4>
@@ -37,6 +33,7 @@ class Home extends Component {
                     </h4>
                   )
               }
+            <div class="btcwdgt-news" bw-entries="10"></div>
       </div>
     );
   }

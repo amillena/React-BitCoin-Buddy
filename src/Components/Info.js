@@ -70,7 +70,7 @@ export default class Info extends Component {
           	<form onSubmit={this.handleSubmit.bind(this)}>
 
               <FormGroup>
-                <ControlLabel className='pull-left'>phone:</ControlLabel>
+                <ControlLabel className='pull-left'>Phone Number for Text Alerts:</ControlLabel>
                 <FormControl
                 	type="text" 
                 	placeholder="phone number" 
@@ -80,7 +80,7 @@ export default class Info extends Component {
               </FormGroup>
         
               <FormGroup type="text">
-                <ControlLabel className='pull-left'>Initial Price:</ControlLabel>
+                <ControlLabel className='pull-left'>Bought Price for BitCoin:</ControlLabel>
                 <FormControl
                   type="text" 
                   placeholder="Initial Price" 
@@ -90,7 +90,7 @@ export default class Info extends Component {
               </FormGroup>
 
               <FormGroup>
-                <ControlLabel className='pull-left'>Date Bought:</ControlLabel>
+                <ControlLabel className='pull-left'>Date Bought for BitCoin:</ControlLabel>
                 <FormControl 
                 	type="Date" 
                 	min="01/01/2000" 
@@ -102,7 +102,7 @@ export default class Info extends Component {
               </FormGroup>
               
               <FormGroup>
-                <ControlLabel className='pull-left'>Target Price:</ControlLabel>
+                <ControlLabel className='pull-left'>Target Percent Change:</ControlLabel>
                 <FormControl 
                 	type="number" 
                 
