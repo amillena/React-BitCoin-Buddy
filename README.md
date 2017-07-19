@@ -8,6 +8,7 @@ BitCoin Buddy is an app utlizing React.js allowing user to set up SMS notificati
 ## Technologies Used
 
 * React.js
+* Auth0
 * HTML
 * CSS
 * JavaScript
@@ -18,6 +19,7 @@ BitCoin Buddy is an app utlizing React.js allowing user to set up SMS notificati
 * Express
 * MongoDB
 * Mongoose
+* React-Chart.js
 * Cron
 * Morgan
 * Request
