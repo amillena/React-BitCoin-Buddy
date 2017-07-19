@@ -79,11 +79,13 @@ class App extends Component {
           </Navbar.Header>
         </Navbar>
         <div className="container">
+
           {this.props.children}
         </div>
-        <h4>
-                {/*<img src={"../BitCoin_Buddy_logo.png"} alt="BitCoin_Buddy_logo.png" width="50%" height="50%"/>*/}
-            </h4>
+             
+
+            
+
       </div>
     );
   }

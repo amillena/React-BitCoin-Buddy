@@ -39,17 +39,21 @@ class Profile extends Component {
 
         <div className="profile-area">
           <h4>Welcome {profile.name}! <img className="img-profile" src={profile.picture} alt="profile" /></h4>
-          
+
           <Info/>
 
           <Chart1 chartData1={this.state.chartData1} legendPosition="bottom"/>
           <Chart2 chartData2={this.state.chartData2} legendPosition="bottom"/>
+          
+          
 
           <a className="custom-style" href="https://www.coinbase.com"> 
               <Button bsStyle="primary" bsSize="large" className="btn-margin" block >
                    Buy or Sell from Coinbase website! 
               </Button>
           </a>
+          
+
         </div>
       </div>
     );

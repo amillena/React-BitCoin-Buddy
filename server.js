@@ -98,9 +98,10 @@ function checkCurrentPrice(){
     	var currentPrice = JSON.parse(body).data.amount;
     	var ans = ((currentPrice - entryPrice)/entryPrice) *100;
     	var percentChange = Math.round(ans*100)/100;
-    
+      var timeStamp = dateformat(now);
+
     	if (ans <= 0) {
-      		var textMessage = dateFormat(now) + "\n" + "percent change "+ percentChange + "%"+ "\n" +
+      		var textMessage = timeStamp + "\n" + "percent change "+ percentChange + "%"+ "\n" +
                       "Current Price $" + currentPrice + "\n" + " Buy now!";
       		console.log(percentChange);
       		console.log(textMessage);
@@ -108,7 +109,7 @@ function checkCurrentPrice(){
 
     // if ans is greater than 20 then "Sell now!"   		
     	}else if (ans >= 20){
-      		var textMessage = dateFormat(now) + "\n"+ "percent change " + percentChange +"%"+ "\n" +
+      		var textMessage = timeStamp + "\n"+ "percent change " + percentChange +"%"+ "\n" +
                       "Current Price $" + currentPrice + "\n" + " Sell now!";
       		console.log(percentChange);
       		console.log(textMessage);
@@ -119,6 +120,8 @@ function checkCurrentPrice(){
 		}
 	});
 };// End of function  =============================================================
+
+console.log(textMessage);
 
 // Function to send text message via Twilio =======================================
 function sendMessage(textMessage){
