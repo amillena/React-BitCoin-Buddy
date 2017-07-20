@@ -5,7 +5,7 @@ const coindesk = require('node-coindesk-api')
 var request = require("request");
 var dateFormat = require('dateformat');
 var CronJob = require('cron').CronJob;
-
+var cors = require ('cors');
 var twilio = require('twilio');
 var client = new twilio (process.env.TWILIO_ACCOUNT_SID,process.env.TWILIO_AUTH_TOKEN); 
 
@@ -87,6 +87,7 @@ var coin = new Coin({'apiKey': process.env.API_KEY,
 
 var textMessage = "null";
 var entryPrice = 2429;
+var percent = 20;
 
 // Function to check current price via CoinBase ================================
 function checkCurrentPrice(){
@@ -100,7 +101,7 @@ function checkCurrentPrice(){
     	var percentChange = Math.round(ans*100)/100;
       var timeStamp = dateformat(now);
 
-    	if (ans <= 0) {
+    	if (ans <= percent) {
       		var textMessage = timeStamp + "\n" + "percent change "+ percentChange + "%"+ "\n" +
                       "Current Price $" + currentPrice + "\n" + " Buy now!";
       		console.log(percentChange);
@@ -108,7 +109,7 @@ function checkCurrentPrice(){
       		sendMessage(textMessage);
 
     // if ans is greater than 20 then "Sell now!"   		
-    	}else if (ans >= 20){
+    	}else if (ans >= percent){
       		var textMessage = timeStamp + "\n"+ "percent change " + percentChange +"%"+ "\n" +
                       "Current Price $" + currentPrice + "\n" + " Sell now!";
       		console.log(percentChange);
@@ -143,9 +144,9 @@ new CronJob('30 * * * * *', function() {
 }, null, true, 'America/Los_Angeles');
 // End of function  ===============================================================
 
-
+app.options('/api/saved', cors())
 // Post route to save to Mongo
-app.post('/api/saved', function(req, res) {
+app.post('/api/saved', cors(), function(req, res) {
  
   var content = new User(req.body);
   content.save(req.body, function(err, saved) {
@@ -153,7 +154,38 @@ app.post('/api/saved', function(req, res) {
       console.log('Mongo Error',err);
     } else {
       console.log('Data has been saved',saved);
+      
       res.send(saved);
+
     }
   });
 });
+
+app.get("/api/saved", function(req,res){
+  User.find({}).limit(1).exec(function(err,doc){
+    if (err) {
+      console.log(err);
+    }
+    else{
+      res.send(doc);
+      console.log('getting data-', doc[0].initialPrice);
+      console.log('getting data-', doc[0].dateBought.date);
+    }
+  });
+});
+
+// app.get("/api/saved", function(req,res){
+//   console.log("req",req);
+//   User.findById(req.params.id, function(err,doc){
+//     if (err) {
+//       console.log(err);
+//     }
+//     else{
+//       res.send(doc);
+//       console.log('getting data-', doc[0].phone);
+//     }
+//   });
+// });
+
+
+

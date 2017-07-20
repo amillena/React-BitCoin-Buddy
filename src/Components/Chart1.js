@@ -18,7 +18,6 @@ class Chart1 extends Component{
 
  componentWillMount() {
   this.getChartData()
-  //console.log(this.getChartData(this.state.initialPrice));
 } 
   static defaultProps = {
     displayTitle:true,
@@ -33,7 +32,6 @@ class Chart1 extends Component{
 
   getChartData(start){
     start = start || '2017-07-01'
-    console.log(start)
 
 //===== Set up end date range ==========================================
     Date.prototype.today = function() {
@@ -46,25 +44,17 @@ class Chart1 extends Component{
   var endDate = new Date();
   endDate.today();
   var end=endDate.today();
-console.log(start);
+
 
 //===== Ajax calls here =============================================
   var queryUrl="http://api.coindesk.com/v1/bpi/historical/close.json?start="+start+"&end="+end;
-console.log(queryUrl)
+
   Request.get(queryUrl).then((response)=>{
 
   var historicalPrice=JSON.parse(response.text)["bpi"]; 
   this.bitcoinData = Object.values(historicalPrice)
   this.dateLabels = Object.keys(historicalPrice)
-   //console.log(this.bitcoinData)
-   //console.log(this.dateLabels)     
-      // for ( var key in historicalPrice) {
-      //   console.log(historicalPrice,key)  
-      //     if (historicalPrice.hasOwnProperty(key)) {
-      //         dateLabels.push(key); 
-      //         bitcoinData.push(historicalPrice[key]);
-      //     }
-      // }    
+   
   });
     this.setState({
       chartData1:{
@@ -79,14 +69,11 @@ console.log(queryUrl)
             borderWidth: 2,
             hoverBackgroundColor: "#1D8348",
             hoverBorderColor: "#85C1E9",
-
-  
           }
         ]
       }
-    });   
+   });   
  }
-
 
 
 
@@ -113,8 +100,6 @@ monthClicked(){
 }
 
 
-
-
 //======================================================================
  
 
@@ -127,8 +112,6 @@ monthClicked(){
        <Collapse in={this.state.open}>
         <div className="panel-body">
           <div className="chart1">
-    {/*<div className="App">*/}
-
               <div className="App-header">
                 <Button bsStyle="primary"
                         bsSize="small"

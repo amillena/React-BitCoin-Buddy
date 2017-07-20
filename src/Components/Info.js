@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { FormGroup, FormControl, ControlLabel, Glyphicon, Button, Collapse } from 'react-bootstrap';
 
 import PanelHeading from './Panelheading';
+var helpers = require ('../Utils/helpers.js');
 
 export default class Info extends Component {
 	constructor(props) {
@@ -45,10 +46,19 @@ export default class Info extends Component {
 		this.setState({targetprice: e.target.value});
 	}
 	
+  handleDateChange(e){
+    this.setState({boughtdate: e.target.value});
+  }
+  
 	handleSubmit(e) {
 		e.preventDefault();
-	
-		
+	 const phonenumber = this.state.phonenumber.trim();
+   const initialPrice = this.state.initialPrice;
+   const boughtdate = this.state.boughtdate;
+   const targetprice = this.state.targetprice;
+		console.log(phonenumber,initialPrice,boughtdate,targetprice);
+    helpers.postForm(phonenumber,initialPrice,boughtdate,targetprice);
+    console.log("i am here !");
 	}
 
 	
@@ -70,45 +80,45 @@ export default class Info extends Component {
           	<form onSubmit={this.handleSubmit.bind(this)}>
 
               <FormGroup>
-                <ControlLabel className='pull-left'>Phone Number for Text Alerts:</ControlLabel>
+                <ControlLabel className='pull-left'>phone:</ControlLabel>
                 <FormControl
                 	type="text" 
                 	placeholder="phone number" 
                 	value={this.state.phonenumber}
-                //	onChange={this.handlephoneChange.bind(this)}
+                	onChange={this.handlephoneChange.bind(this)}
                 />
               </FormGroup>
         
               <FormGroup type="text">
-                <ControlLabel className='pull-left'>Bought Price for BitCoin:</ControlLabel>
+                <ControlLabel className='pull-left'>Initial Price:</ControlLabel>
                 <FormControl
                   type="text" 
                   placeholder="Initial Price" 
                   value={this.state.initialPrice}
-                // onChange={this.handleInpriceChange.bind(this)}
+                 onChange={this.handleInpriceChange.bind(this)}
                 />
               </FormGroup>
 
               <FormGroup>
-                <ControlLabel className='pull-left'>Date Bought for BitCoin:</ControlLabel>
+                <ControlLabel className='pull-left'>Date Bought:</ControlLabel>
                 <FormControl 
                 	type="Date" 
                 	min="01/01/2000" 
                 	max={this.state.currentDate} 
                 	placeholder="01/01/2017"
                 	value={this.state.boughtdate}
-               // 	onChange={this.handleDateChange.bind(this)}
+                	onChange={this.handleDateChange.bind(this)}
                 	/>
               </FormGroup>
               
               <FormGroup>
-                <ControlLabel className='pull-left'>Target Percent Change:</ControlLabel>
+                <ControlLabel className='pull-left'>Target Price:</ControlLabel>
                 <FormControl 
                 	type="number" 
                 
                 	placeholder="your Target price!!!"
                 	value={this.state.targetprice}
-               // 	onChange={this.handletargetChange.bind(this)}
+                	onChange={this.handletargetChange.bind(this)}
                 />
               </FormGroup>
           
@@ -117,6 +127,9 @@ export default class Info extends Component {
               	<Glyphicon glyph='trash'>&nbsp;Clear</Glyphicon>
               </Button>
             
+            <Button type="submit" className='pull-left'>
+                Submit            
+              </Button>
             </form>
         </div>
       </Collapse>

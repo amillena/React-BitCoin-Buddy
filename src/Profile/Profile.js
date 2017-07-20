@@ -23,13 +23,13 @@ class Profile extends Component {
     
     this.setState({ profile: {} });
     const { userProfile, getProfile }=this.props.auth;
-    if (!userProfile) {
-      getProfile((err, profile) => {
-        this.setState({ profile });
-      });
-    } else {
-      this.setState({ profile: userProfile });
-    }
+      if (!userProfile) {
+          getProfile((err, profile) => {
+          this.setState({ profile });
+        });
+       } else {
+          this.setState({ profile: userProfile });
+      }
   }
   
   render() {
@@ -44,16 +44,12 @@ class Profile extends Component {
 
           <Chart1 chartData1={this.state.chartData1} legendPosition="bottom"/>
           <Chart2 chartData2={this.state.chartData2} legendPosition="bottom"/>
-          
-          
 
           <a className="custom-style" href="https://www.coinbase.com"> 
               <Button bsStyle="primary" bsSize="large" className="btn-margin" block >
                    Buy or Sell from Coinbase website! 
               </Button>
           </a>
-          
-
         </div>
       </div>
     );
