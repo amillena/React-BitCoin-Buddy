@@ -2,6 +2,7 @@
   "name": "user-profile",
   "version": "0.1.0",
   "private": true,
+  "main": "public/index.html",
   "devDependencies": {
     "react-scripts": "0.9.5",
     "babel-core": "^6.3.13",
@@ -51,7 +52,7 @@
     "twilio": "^3.3.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-    
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "react-scripts build"
   }
 }
