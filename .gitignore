@@ -10,7 +10,7 @@ coverage
 build
 
 # misc
-Auth/auth0-variables.js
+
 .DS_Store
 
 npm-debug.log
