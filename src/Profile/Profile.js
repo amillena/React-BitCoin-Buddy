@@ -45,7 +45,7 @@ class Profile extends Component {
           <Chart1 chartData1={this.state.chartData1} legendPosition="bottom"/>
           <Chart2 chartData2={this.state.chartData2} legendPosition="bottom"/>
 
-          <a className="custom-style" href="https://www.coinbase.com"> 
+          <a className="custom-style" target="_blank" href="https://www.coinbase.com"> 
               <Button bsStyle="primary" bsSize="large" className="btn-margin" block >
                    Buy or Sell from Coinbase website! 
               </Button>
