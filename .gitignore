@@ -12,5 +12,5 @@ build
 # misc
 Auth/auth0-variables.js
 .DS_Store
-.env
+
 npm-debug.log
