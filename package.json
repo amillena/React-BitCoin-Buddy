@@ -30,6 +30,7 @@
     "express": "^4.15.3",
     "express-session": "^1.15.3",
     "history": "^4.6.1",
+    "koa-route": "^3.2.0",
     "lodash": "^4.17.4",
     "method-override": "^2.3.9",
     "moment": "^2.18.1",
@@ -52,7 +53,12 @@
     "twilio": "^3.3.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "react-scripts build"
+    "heroku-postbuild": "npm run build",
+    "start": "npm-run-all --parallel server:start client:start",
+    "client:start": "react-scripts start",
+    "server:start": "node server.js",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
   }
 }

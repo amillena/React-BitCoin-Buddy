@@ -9,12 +9,12 @@ var cors = require ('cors');
 var twilio = require('twilio');
 var client = new twilio (process.env.TWILIO_ACCOUNT_SID,process.env.TWILIO_AUTH_TOKEN); 
 
-const koa = require('koa');
-const path = require('path');
-const static = require('koa-static');
-const fs = require('fs');
-const route = require('koa-route');
-const app = koa();
+// const koa = require('koa');
+// const path = require('path');
+// const static = require('koa-static');
+// const fs = require('fs');
+// const route = require('koa-route');
+// const app = koa();
 
 var express  = require('express');
 var app      = express();
@@ -199,9 +199,9 @@ app.get("/api/saved", function(req,res){
 
 
 
-function* index() {
-  this.body = fs.readFileSync(path.resolve(path.join('build', 'index.html')), 'utf8')
-}
+// function* index() {
+//   this.body = fs.readFileSync(path.resolve(path.join('build', 'index.html')), 'utf8')
+// }
 
-app.use(route.get('*', index))
+// app.use(route.get('*', index))
 
