@@ -51,8 +51,8 @@
     "socket.io": "^2.0.2",
     "superagent": "^3.5.2",
     "twilio": "^3.3.0"
-  }
-  {
+  },
+  
   "scripts": {
     "heroku-postbuild": "npm run build"
   }
