@@ -1,8 +1,8 @@
 {
-  "name": "user-profile",
+  "name": "react-bitcoin-buddy",
   "version": "0.1.0",
   "private": true,
-  "main": "public/index.html",
+  "main":"server.js",
   "devDependencies": {
     "react-scripts": "0.9.5",
     "babel-core": "^6.3.13",
@@ -30,6 +30,7 @@
     "express": "^4.15.3",
     "express-session": "^1.15.3",
     "history": "^4.6.1",
+    "koa-route": "^3.2.0",
     "lodash": "^4.17.4",
     "method-override": "^2.3.9",
     "moment": "^2.18.1",
@@ -52,6 +53,7 @@
     "twilio": "^3.3.0"
   },
   "scripts": {
+    "heroku-postbuild": "npm run build",
     "start": "npm-run-all --parallel server:start client:start",
     "client:start": "react-scripts start",
     "server:start": "node server.js",
